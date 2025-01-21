@@ -7,7 +7,7 @@ const port = process.env.PORT || 5003;
 
 
 app.use(express.json());
-app.use(cors( {origin : ["http://localhost:5173", "https://todo-with-backend.surge.sh"] }));
+app.use(cors( {origin : ["http://localhost:5173", "https://todo-with-mongo.surge.sh/"] }));
 
 // app.get("/", (req, res) => {
 //   res.send('testing todos');
