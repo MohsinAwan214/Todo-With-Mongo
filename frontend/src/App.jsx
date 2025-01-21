@@ -134,7 +134,7 @@ function App() {
   // console.log(event.target.value);
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-300 to-blue-500 flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-xl w-96">
         <h1 className="text-4xl font-bold text-center mb-6 text-gray-800">
           To-Do List
@@ -145,7 +145,7 @@ function App() {
             <input
               type="text"
               placeholder="Add a new task"
-              className="w-80 p-4 border-2 border-gray-300 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500"
+              className="w-80 p-4 border-2 border-gray-300 rounded-md shadow-md focus:outline-none focus:ring-2  placeholder-gray-500"
             />
 
             <button className="bg-blue-600 w-80 text-white p-2 rounded shadow-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500">
