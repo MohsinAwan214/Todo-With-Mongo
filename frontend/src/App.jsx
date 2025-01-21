@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 function App() {
-  const BASE_URL = "https://todo-with-backend-chi.vercel.app";
+  const BASE_URL = "https://todo-with-mongo-kohl.vercel.app";
 
   const [todos, setTodos] = useState([]);
   console.log(todos);
