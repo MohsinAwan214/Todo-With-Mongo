@@ -3,7 +3,8 @@ import mongoose from 'mongoose';
 
 
 
-const mongoDbUri = "mongodb+srv://mohsin-admin:mohsin123@cluster0.zdmna.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const mongoDbUri = process.env.MONGO_URL
+console.log(mongoDbUri);
 
 
 const connectDB = async () => {
@@ -32,7 +33,21 @@ const connectDB = async () => {
     }
   };
 
- connectDB();
+//   (async () => {
+    try {
+      await connectDB();
+  
+    //   app.listen(PORT, () =>
+        // console.log(`⚙️  Server running at port ==>> ${PORT}`),
+    //   );
+  
+    //   app.on("error", (err) => console.log("🚀 ~ main file:", err));
+    } catch (err) {
+      console.log("🚀 ~ main file ~ err:", err);
+    }
+//   })();
+
+//  connectDB();
 
 
 

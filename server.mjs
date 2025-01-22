@@ -1,7 +1,14 @@
 import express, { response } from "express";
 import cors from 'cors'
+import 'dotenv/config'
 import  './dateBase.js'
 import { Todo } from "./models/index.js";
+
+
+
+
+
+
 const app = express();
 const port = process.env.PORT || 5003;
 
