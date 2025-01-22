@@ -81,6 +81,8 @@ console.log("result=>", result);
 app.delete("/api/v1/todo/:id", async(req, res) => {
 
   const id = req.params.id
+  console.log(id);
+  
  const result = await Todo.findByIdAndDelete(id)
   if (result) {
     res.status(201).send({

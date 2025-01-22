@@ -37,8 +37,7 @@ function App() {
       event.preventDefault();
 
       const todoValue = event.target.children[0].value;
-      await axios.post(
-        `${BASE_URL}/api/v1/todo`,
+      await axios.post(`${BASE_URL}/api/v1/todo`,
 
         {
           todo: todoValue,
@@ -159,7 +158,7 @@ function App() {
         <ul className="space-y-4">
           {todos?.map((todo, index) => (
             <li
-              key={todo.id}
+              key={todo._id}
               className="flex items-center justify-between  p-4  bg-gray-100 rounded-lg shadow-md"
             >
               {!todo.isEditing ? (
@@ -168,7 +167,7 @@ function App() {
                 </span>
               ) : (
 
-                <form onSubmit={(e)=>editTodo(e,todo.id)} className="flex justify-between  w-full">
+                <form onSubmit={(e)=>editTodo(e,todo._id)} className="flex justify-between  w-full">
 
 
                 <input
@@ -219,7 +218,7 @@ function App() {
                 )}
                 {!todo.isEditing ? (
                   <button
-                    onClick={() => deleteTodo(todo.id)}
+                    onClick={() => deleteTodo(todo._id)}
                     className="text-gray-500 hover:text-red-500"
                   >
                     <svg
