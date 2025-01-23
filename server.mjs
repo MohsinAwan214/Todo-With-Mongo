@@ -14,7 +14,7 @@ const port = process.env.PORT || 5003;
 
 
 app.use(express.json());
-app.use(cors( {origin : ["http://localhost:5173", "https://todo-with-mongo.surge.sh" ,"https://todo-with-mongo-nine.vercel.app/"] }));
+app.use(cors( {origin : ["http://localhost:5173", "https://todo-with-mongo.surge.sh" ,"https://todo-with-mongo-nine.vercel.app"] }));
 
 // app.get("/", (req, res) => {
 //   res.send('testing todos');
@@ -25,7 +25,7 @@ app.get("/api/v1/todos", async (req, res) => {
   try {
     const todos = await Todo.find({},
       {  ip : 0 , __v: 0, updatedAt:0  }
-  ).sort({ todoContent: -1 })
+  ).sort({ _id : -1 })
   const message = !todos.length ? "todo empty" : "all todos";
 
 
