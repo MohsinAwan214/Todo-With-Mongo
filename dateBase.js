@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 
 
 const mongoDbUri = process.env.MONGO_URL
-console.log(mongoDbUri);
+
 
 
 const connectDB = async () => {
