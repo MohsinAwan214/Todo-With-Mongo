@@ -2,8 +2,21 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
+
+
+export const getUrl = () => {
+  const isHosted = window.location.href.includes("https");
+
+  const baseUrl = isHosted
+    ? "https://todo-with-mongo-nine.vercel.app"
+    : "http://localhost:5003";
+  return baseUrl;
+};
+
+
+
 function App() {
-  const BASE_URL = "https://todo-with-mongo-nine.vercel.app";
+  
 
   const [todos, setTodos] = useState([]);
   console.log(todos);
@@ -13,7 +26,7 @@ function App() {
 
   const getTodo = async () => {
    try {
-    const res = await axios.get(`${BASE_URL}/api/v1/todos`);
+    const res = await axios.get(`${getUrl()}/api/v1/todos`);
     const todosFromServer = res?.data?.data;
 
     console.log("todosFromServer", todosFromServer);
@@ -37,7 +50,7 @@ function App() {
       event.preventDefault();
 
       const todoValue = event.target.children[0].value;
-      await axios.post(`${BASE_URL}/api/v1/todo`,
+      await axios.post(`${getUrl()}/api/v1/todo`,
 
         {
           todo: todoValue,
@@ -59,7 +72,7 @@ function App() {
 
       const todoValue = event.target.children[0].value;
       await axios.patch(
-        `${BASE_URL}/api/v1/todo/${todoId}`,
+        `${getUrl()}/api/v1/todo/${todoId}`,
 
         {
           todoContent: todoValue,
@@ -81,7 +94,7 @@ function App() {
   const deleteTodo = async (todoId) => {
     try {
       console.log("todoId", todoId);
-      const { data } = await axios.delete(`${BASE_URL}/api/v1/todo/${todoId}`);
+      const { data } = await axios.delete(`${getUrl()}/api/v1/todo/${todoId}`);
 
       console.log("data", data);
 
@@ -96,7 +109,7 @@ function App() {
   // console.log("meretodoId",todoId);
 
   // try {
-  //   const { data } = await axios.patch(`${BASE_URL}/api/v1/todo/${todoId}`);
+  //   const { data } = await axios.patch(`${getUrl}/api/v1/todo/${todoId}`);
   //   console.log("data mera", data);
 
   // } catch (error) {
@@ -116,7 +129,7 @@ function App() {
   //     console.log("todoValue", todoValue);
 
   //     // await axios.post(
-  //     //   `${BASE_URL}/api/v1/todo`,
+  //     //   `${getUrl}/api/v1/todo`,
 
   //     // {
   //     //   todo: todoValue,
