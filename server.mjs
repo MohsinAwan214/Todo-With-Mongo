@@ -23,9 +23,9 @@ app.use(cors( {origin : ["http://localhost:5173", "https://todo-with-mongo.surge
 
 app.get("/api/v1/todos", async (req, res) => {
   try {
-    const todos = await Todo.find({},{
-    ip : 0 , __v: 0, updatedAt:0 
-    })
+    const todos = await Todo.find({},
+      {  ip : 0 , __v: 0, updatedAt:0  }
+  ).sort({ todoContent: -1 })
   const message = !todos.length ? "todo empty" : "all todos";
 
 
